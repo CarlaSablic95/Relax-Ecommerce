@@ -1,0 +1,7 @@
+header > div {
+    z-index: 1;
+}
+
+.banner {
+    filter: brightness(0.7);
+}

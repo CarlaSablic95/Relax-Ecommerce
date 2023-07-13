@@ -1,7 +1,91 @@
+:root {
+    --brown: #BC6C25;
+    --light-brown: #DDA15E;
+    --beige: #FEFAE0;
+    --dark-black: #201f1f;
+}
+
+/* BOTONES */
+
+.btn-primary {
+    background-color: var(--dark-black);
+    color: var(--beige);
+}
+
+/* COLORES */
+.redes {
+    color: var(--beige);
+    font-size: 1.5rem;
+}
+
 header > div {
     z-index: 1;
 }
 
+
 .banner {
     filter: brightness(0.7);
+}
+
+.portada-mujer {
+    background-image: url(../assets/img/indumentaria-fem.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% top;
+    height: 100vh;
+}
+
+.portada-hombre {
+    background-image: url(../assets/img/indumentaria-masc.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 42% top;
+    height: 100vh;
+}
+
+.polygon-1 {
+    clip-path: polygon(100% 0, 0 0%, 0% 100%);
+}
+
+.polygon {
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+/* Seccion "Sobre nosotros" */
+.nosotros {
+    background-color: var(--dark-black);
+    color: var(--beige);
+}
+
+.titulo-nosotros {
+    background-color: var(--beige);
+    color: var(--dark-black);
+    top: -10px;
+    left: -30px;
+}
+
+.outfit-mujer {
+    background-image: url(../assets/img/mujer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 70%;
+    height: 60vh;
+    filter: saturate(1.2);
+}
+
+.outfit-hombre {
+    background-image: url(../assets/img/hombre-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 70%;
+    height: 60vh;
+}
+
+/* Sección "Newsletter" */
+.newsletter {
+    background-color: var(--beige);
+}
+
+footer {
+    background-color: var(--dark-black);
 }

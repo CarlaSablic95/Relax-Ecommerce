@@ -1,0 +1,5 @@
+[
+    {"id": "1", "nombre": "Boho chic", "img": "./assets/img/outfit-mujer/boho-chic.jpg"},
+    {"id": "2", "nombre": "Rocker", "img": "./assets/img/outfit-mujer/rocker.jpg"},
+    {"id": "3", "nombre": "Casual", "img": "./assets/img/outfit-mujer/casual.jpg"}
+]

@@ -1,0 +1,1 @@
+let outfitWoman = document.getElementById("outfit-mujer");

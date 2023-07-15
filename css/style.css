@@ -1,8 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
 :root {
     --brown: #BC6C25;
     --light-brown: #DDA15E;
     --beige: #FEFAE0;
     --dark-black: #201f1f;
+}
+
+*::-webkit-scrollbar {
+    width: 13px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--dark-black) 30%, var(--light-brown) 100%);
+    border-radius: 8px;
+    border: 3px solid #ffffff;
+}
+
+/* FUENTES TIPOGRÁFICAS */
+.rocker {
+    font-family: 'Rock Salt', cursive;
 }
 
 /* BOTONES */
@@ -35,12 +52,32 @@ header > div {
     height: 100vh;
 }
 
+/* .portada {
+    background-image: url(../assets/img/outfits-mujer/portada.jpg);
+    /* background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: 50% top;
+    height: 100vh;
+} */
+
 .portada-hombre {
     background-image: url(../assets/img/indumentaria-masc.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 42% top;
     height: 100vh;
+}
+
+.filtro-img {
+    clip-path: polygon(0 70%, 57% -219%, 123% 120%);
+}
+
+.card {
+    border-radius: 0;
+}
+
+.bg-degradado {
+    background:  rgb(58, 58, 58);
 }
 
 .polygon-1 {

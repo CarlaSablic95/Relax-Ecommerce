@@ -29,7 +29,11 @@
     color: var(--beige);
 }
 
-/* COLORES */
+.btn-primary:active, .btn-primary:hover {
+    background-color: var(--dark-black) !important;
+    color: var(--beige);
+}
+
 .redes {
     color: var(--beige);
     font-size: 1.5rem;
@@ -76,8 +80,17 @@ header > div {
     border-radius: 0;
 }
 
-.bg-degradado {
-    background:  rgb(58, 58, 58);
+.card-info-producto {
+    border-radius: 15px;
+    margin-top: -2rem;
+    z-index: 2;
+    position: relative;
+    padding: 12px;
+    text-align: center;
+}
+
+.bg-dark{
+    background:  rgb(58, 58, 58) !important;
 }
 
 .polygon-1 {
@@ -125,4 +138,9 @@ header > div {
 
 footer {
     background-color: var(--dark-black);
+}
+
+/* PRODUCTOS MUJER */
+aside {
+    top: 125px;
 }

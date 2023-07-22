@@ -1,45 +1,32 @@
 // Capturando nodos
-let outfitMujer = document.getElementById("outfit-mujer");
-let productosMujer = document.getElementById("productos-mujer");
+let productosMujer = document.getElementById("contenedor"); // listado de productos
+let checkEstilos = document.querySelectorAll(".check-estilos");
+let checkCategorias = document.querySelectorAll(".check-categorias");
 
-let checkBotones = document.querySelectorAll(".form-check-input");
+let titulo = document.getElementById("titulo");
 
+// let carrito = [];
 
-
-let productos = [];
-
-
-// Consumiendo API LOCAL de outfits de mujer
-const mostrarOutfits = () => {
-    fetch("./js/outfits-mujer.json")
-        .then((respuesta) => respuesta.json())
-        .then((outfits) => {
-            outfits.forEach((outfit) => {
-                outfitMujer.innerHTML += `
-                    <div class="col-12 col-md-4 mb-3">
-                        <a href="./productos-mujer.html" class="text-decoration-none">
-                            <div class="card border-0 bg-degradado">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <img src="${outfit.img}" width="300px" alt="${outfit.nombre}" class="filtro-img img-fluid">
-                                    <h4 class="rocker text-white fs-5 text-center">${outfit.nombre}</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>`
-            });
-        })
+// Guardo productos en local storage
+const guardarProductosLS = () => {
+    fetch("./js/indumentaria-fem.json")
+    .then((respuesta) => respuesta.json())
+    .then((productos) => {   
+        localStorage.setItem("productos", JSON.stringify(productos)); // lo convierto a objeto tipo string porque es el tipo de dato que acepta el local storage
+    })
 }
 
-mostrarOutfits();
+guardarProductosLS();
 
 // Consumiendo API LOCAL de indumentaria femenina
-const cargarProductosMujer = () => {
-    fetch("./js/indumentaria-fem.json")
-        .then((respuesta) => respuesta.json())
-        .then((productos) => {
-            productos.forEach((producto) => {
+// Listado de productos
+const renderProductosMujer = () => {
+    productos = JSON.parse(localStorage.getItem("productos"));
+    console.log(productos) // lo parseo porque viene con formato de texto JSON. El array con 27 objetos
+    titulo.innerHTML = "Todos los productos";
+    productos.forEach((producto) => {
                 productosMujer.innerHTML += `
-                    <div class="col-12 col-md-4 mb-4 position-relative">
+                    <div class="col-12 col-md-4 mb-4 position-relative animate__animated animate__fadeIn">
                         <img src="${producto.img}" alt="${producto.nombre}" class="img-fluid rounded-top">
                         <button id="${producto.id}" class="btn btn-primary border-0 position-absolute top-0 end-0 btn-fav">
                             <i class="bi bi-suit-heart"></i>
@@ -48,45 +35,90 @@ const cargarProductosMujer = () => {
                         <div class="bg-dark card-info-producto">
                             <h4 class="text-white fs-5 text-center">${producto.nombre}</h4>
                             <p class="text-white fs-6 text-center">$${producto.precio}</p>
-                            <button id="${producto.id}" class="btn btn-primary border-0 btn-carrito">
-                                Agregar al carrito <i class="bi bi-cart2"></i>
-                            </button>
+                            <button class="btn btn-primary border-0 btn-ver-producto" id="${producto.id}">Ver producto</button>
                         </div>
                     </div>`
-            })
-        })
+            });
 }
 
-cargarProductosMujer();
+renderProductosMujer();
 
-let btnAgregarCarrito = document.querySelectorAll("btn-carrito")
+// Filtro productos por estilo
+const filtroPorEstilo = () => {
+     productos = JSON.parse(localStorage.getItem("productos")); // me traigo los productos que estan guardados en Local storage
 
-// let btnFavorito = document.querySelector(".btn-fav");
-// let heart = document.querySelector(".bi-suit-heart");
-// console.log(btnFavorito)
-// console.log(heart)
-// btnFavorito.addEventListener("click", () => {
-//     heart.classList.remove("bi-suit-heart");
-//     heart.classList.add("bi-suit-heart-fill");
-//     console.log("Agregando a favoritos")
-// })
+     // recorro los check y por cada uno le agrego el evento click donde al hacerle click hago un filtro y comparo el estilo del producto con el VALUE DE CADA CHECKBOX
+     // el método filter() RETORNA UN NUEVO ARRAY
+    checkEstilos.forEach((checkEstilo) => {
+        checkEstilo.addEventListener("click", () => {
+            let productosFiltrados = productos.filter(producto => (checkEstilo.checked && producto.estilo === checkEstilo.value)); // NUEVO ARRAY
 
-const filtrarProdMujer = (productos) => {
-    checkBotones.forEach(checkBoton => {
-        checkBoton.addEventListener("click", (e) => {
-            productos.filter(producto => producto.categoria === e.currentTarget.id)
+            // Vacío el contenido de productosMujer antes de agregar los productos filtrados porque está lleno con los 27 productos
+            productosMujer.innerHTML = "";
 
-            cargarProductosMujer()
+             // Si el largo del array nuevo que retorna el método filter() es MAYOR que cero, cambio el titulo por el nombre del estilo y recorro el NUEVO ARRAY para que CADA PRODUCTO se imprima en el div con ID productosMujer
+            if(productosFiltrados.length > 0) {
+                productosFiltrados.forEach(producto => {
+                    titulo.innerHTML = `${(producto.estilo).toUpperCase()}`;
+                    productosMujer.innerHTML += `
+                    <div class="col-12 col-md-4 mb-4 position-relative animate__animated card-producto">
+                    <img src="${producto.img}" alt="${producto.nombre}" class="img-fluid rounded-top">
+                        <button id="${producto.id}" class="btn btn-primary border-0 position-absolute top-0 end-0 btn-fav">
+                            <i class="bi bi-suit-heart"></i>
+                        </button>
+                          
+                        <div class="bg-dark card-info-producto">
+                            <h4 class="text-white fs-5 text-center">${producto.nombre}</h4>
+                            <p class="text-white fs-6 text-center">$${producto.precio}</p>
+                            <button class="btn btn-primary border-0 btn-ver-producto" id="${producto.id}">Ver producto</button>
+                        </div>
+                    </div>`
+                })
+            } else {
+                titulo.innerHTML = "Todos los productos";
+               renderProductosMujer();
+            }
+        })
+
+    })
+}
+
+filtroPorEstilo();
+
+// Filtro por categoría de productos
+const filtroPorCategoria = () => {
+    productos = JSON.parse(localStorage.getItem("productos"));
+
+    checkCategorias.forEach((checkCategoria) => {
+        checkCategoria.addEventListener("click", () => {
+            let categoriaProductos = productos.filter((producto) => (checkCategoria.checked && producto.categoria == checkCategoria.value));
+
+            productosMujer.innerHTML = "";
+            
+            if(categoriaProductos.length > 0) {
+                categoriaProductos.forEach((producto) => {
+                    titulo.innerHTML = `${(producto.categoria).toUpperCase()}`;
+
+                    productosMujer.innerHTML += `
+                    <div class="col-12 col-md-4 mb-4 position-relative animate__animated card-producto">
+                    <img src="${producto.img}" alt="${producto.nombre}" class="img-fluid rounded-top">
+                        <button id="${producto.id}" class="btn btn-primary border-0 position-absolute top-0 end-0 btn-fav">
+                            <i class="bi bi-suit-heart"></i>
+                        </button>
+                          
+                        <div class="bg-dark card-info-producto">
+                            <h4 class="text-white fs-5 text-center">${producto.nombre}</h4>
+                            <p class="text-white fs-6 text-center">$${producto.precio}</p>
+                            <button class="btn btn-primary border-0 btn-ver-producto" id="${producto.id}">Ver producto</button>
+                        </div>
+                    </div>`
+                })
+            } else {
+                titulo.innerHTML = "Todos los productos";
+                renderProductosMujer();
+            }
         })
     })
 }
 
-filtrarProdMujer();
-
-const agregarAlCarrito = () => {
-    btnAgregarCarrito.addEventListener("click", (e) => {
-        console.log("Agregado al carrito")
-    })
-}
-
-agregarAlCarrito();
+filtroPorCategoria();

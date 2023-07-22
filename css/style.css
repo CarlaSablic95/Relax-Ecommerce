@@ -58,10 +58,10 @@ header > div {
 
 /* .portada {
     background-image: url(../assets/img/outfits-mujer/portada.jpg);
-    /* background-repeat: no-repeat; 
+    background-repeat: no-repeat; 
     background-size: cover;
     background-position: 50% top;
-    height: 100vh;
+    height: 75vh;
 } */
 
 .portada-hombre {
@@ -72,9 +72,9 @@ header > div {
     height: 100vh;
 }
 
-.filtro-img {
+/* .filtro-img {
     clip-path: polygon(0 70%, 57% -219%, 123% 120%);
-}
+} */
 
 .card {
     border-radius: 0;
@@ -87,6 +87,18 @@ header > div {
     position: relative;
     padding: 12px;
     text-align: center;
+}
+
+.form-check-input:checked {
+    border-color: var(--dark-black);
+    background-color:  #b8a004  ;
+    color: var(--dark-black);
+}
+
+.form-check-input:focus {
+    border-color: var(--dark-black);
+    outline: 0;
+    box-shadow: none;
 }
 
 .bg-dark{

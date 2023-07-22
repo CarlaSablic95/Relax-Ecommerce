@@ -13,12 +13,12 @@
 
 <body>
     <header class="portada">
-        <div class="position-absolute w-100 px-5 py-4">
+        <div class="position-absolute w-100 px-5 py-3 mb-5 bg-dark">
             <div class="d-flex justify-content-between">
                 <a href="./index.html" class="titulo text-decoration-none text-white">
                     <h1 class="text-uppercase text-white">Relax</h1>
                 </a>
-                <nav>
+                <nav class="d-flex align-items-center">
                     <ul class="d-flex list-unstyled">
                         <li class="border-end pe-4">
                             <a href="./index.html" class="text-decoration-none text-white text-uppercase">Registro</a>
@@ -26,9 +26,12 @@
                         <li class="border-end px-4">
                             <a href="" class="text-decoration-none text-white text-uppercase">Iniciar sesión</a>
                         </li>
-                        <li class="mx-3">
-                            <a href="./carrito.html" class="text-decoration-none text-white text-uppercase"><i class="bi bi-bag"></i></a>
-                        </li>
+                        <li class="mx-3 position-relative">
+                          <a href="./carrito.html" class="text-decoration-none text-white text-uppercase">
+                              <i class="bi bi-bag"></i>
+                              <span class="position-absolute top-0 start-100 translate-middle badge bg-dark  rounded-pill">0</span>
+                          </a>
+                      </li>
                     </ul>
                 </nav>
             </div>
@@ -36,57 +39,84 @@
     </header>
 
     
-    <main class="d-flex align-items-baseline">
-      <aside class="col-md-2 rounded-end position-sticky z-1 p-2 p-md-5 bg-dark text-white">
-          <h4>Categorías</h4>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="remeras" id="remeras">
-            <label class="form-check-label" for="remeras">
-              Remeras
+    <main class="d-flex align-items-baseline mb-5">
+      <aside class="col-md-2 rounded-end position-sticky z-1 p-2 py-md-4 ps-md-4 pe-md-3 bg-dark text-white">
+  
+          <!-- Filtro por estilo -->
+          <h4 class="mb-3">Estilos</h4>
+          <div class="form-check">
+            <input class="form-check-input check-estilos" type="checkbox" value="rock" id="rock">
+            <label class="form-check-label" for="rock">
+              Rock
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="vestidos" id="vestidos">
+            <input class="form-check-input check-estilos" type="checkbox" value="boho-chic" id="boho-chic">
+            <label class="form-check-label" for="boho-chic">
+              Boho-chic
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input check-estilos" type="checkbox" value="casual" id="casual">
+            <label class="form-check-label" for="casual">
+              Casual
+            </label>
+          </div>
+        </div>
+
+        <hr>
+      <!-- Filtro por categorias -->
+        <h4 class="mb-3">Categorías</h4>
+        <div class="form-check">
+            <input class="form-check-input check-categorias" type="checkbox" value="remeras" id="remeras">
+            <label class="form-check-label" for="remeras">
+              Remeras
+            </label>
+        </div>
+        
+          <div class="form-check">
+            <input class="form-check-input check-categorias" type="checkbox" value="vestidos" id="vestidos">
             <label class="form-check-label" for="vestidos">
               Vestidos
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="camisas" id="camisas">
+            <input class="form-check-input check-categorias" type="checkbox" value="camisas" id="camisas">
             <label class="form-check-label" for="camisas">
               Camisas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="camperas" id="camperas">
+            <input class="form-check-input check-categorias" type="checkbox" value="camperas" id="camperas">
             <label class="form-check-label" for="camperas">
               Camperas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="botas" id="botas">
+            <input class="form-check-input check-categorias" type="checkbox" value="botas" id="botas">
             <label class="form-check-label" for="botas">
               Botas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="zapatillas" id="zapatillas">
+            <input class="form-check-input check-categorias" type="checkbox" value="zapatillas" id="zapatillas">
             <label class="form-check-label" for="zapatillas">
               Zapatillas
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="accesorios" id="accesorios">
+            <input class="form-check-input check-categorias" type="checkbox" value="accesorios" id="accesorios">
             <label class="form-check-label" for="accesorios">
               Accesorios
             </label>
           </div>
+
     </aside>
-        <!-- Outfits -->
+        <!-- Productos de mujer -->
         <section class="p-5">
-                <h2 class="text-center mb-5">Productos</h2>
+                <h2 class="text-center my-5" id="titulo"></h2>
                 <div class="container">
-                    <div class="row justify-content-center" id="productos-mujer">
+                    <div class="row justify-content-center" id="contenedor">
                     </div>
                 </div>
         </section>
@@ -132,7 +162,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
-        <script src="./js/nodos.js"></script>
         <script src="./js/main.js"></script>
 </body>
 </html>

@@ -89,6 +89,10 @@ header > div {
     text-align: center;
 }
 
+.form-check-label:hover, .form-check-input:hover {
+    cursor: pointer;
+}
+
 .form-check-input:checked {
     border-color: var(--dark-black);
     background-color:  #b8a004  ;
@@ -103,14 +107,6 @@ header > div {
 
 .bg-dark{
     background:  rgb(58, 58, 58) !important;
-}
-
-.polygon-1 {
-    clip-path: polygon(100% 0, 0 0%, 0% 100%);
-}
-
-.polygon {
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
 
 /* Seccion "Sobre nosotros" */
@@ -156,3 +152,5 @@ footer {
 aside {
     top: 125px;
 }
+
+/* VER PRODUCTO */

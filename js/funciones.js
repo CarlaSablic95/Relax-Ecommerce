@@ -1,5 +1,6 @@
 // Guardo productos en local storage
 // Consumiendo API LOCAL de indumentaria femenina
+let productos = [];
 const guardarProductosLS = () => {
     fetch("./js/indumentaria-fem.json")
     .then((respuesta) => respuesta.json())

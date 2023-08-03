@@ -4,3 +4,5 @@ let checkCategorias = document.querySelectorAll(".check-categorias");
 let titulo = document.getElementById("titulo");
 
 let contenedorProducto = document.getElementById("contenedor-producto"); // interna de producto
+let contenidoCarrito = document.getElementById("contenido-carrito");
+let botonCarrito = document.getElementById("boton-carrito");

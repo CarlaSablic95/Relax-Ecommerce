@@ -13,6 +13,32 @@ guardarProductosLS();
 
 
 const obtenerProductos = () => {
-    productos = JSON.parse(localStorage.getItem("productos"));
+   return productos = JSON.parse(localStorage.getItem("productos"));
     // console.log(productos) // lo parseo porque viene con formato de texto JSON. El array con 27 objetos
 }
+
+const guardarCarritoLS = (carrito) => {
+     localStorage.setItem("carrito", JSON.stringify(carrito))
+}
+
+const cargarCarritoLS = () => {
+    return JSON.parse(localStorage.getItem("carrito"));
+}
+
+// Suma de precios de todos los productos
+const totalProductos = () => {
+ const carrito = cargarCarritoLS();
+ return carrito.reduce((acumulador, producto) => acumulador += producto.cantidad * producto.precio, 0);
+}
+
+const cantidadProductos = () => {
+    const carrito = cargarCarritoLS();
+    return carrito.reduce((acumulador, producto) => acumulador += producto.cantidad, 0);
+}
+
+const mostrarBotonCarrito = () => {
+    botonCarrito.innerHTML = `<i class="bi bi-bag"></i>
+    <span class="position-absolute top-0 start-100 translate-middle badge bg-beige text-dark rounded-circle" id="item-carrito">${cantidadProductos()}</span>`;
+}
+
+mostrarBotonCarrito();

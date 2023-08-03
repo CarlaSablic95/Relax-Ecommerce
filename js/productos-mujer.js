@@ -1,5 +1,3 @@
-console.log("El archivo JavaScript se está ejecutando correctamente");
-
 // Listado de productos
 
 const renderProductosMujer = () => {
@@ -16,7 +14,7 @@ const renderProductosMujer = () => {
                         <div class="bg-dark card-info-producto">
                             <h4 class="text-white fs-5 text-center">${producto.nombre}</h4>
                             <p class="text-white fs-6 text-center">$${producto.precio}</p>
-                            <a href="./ver-producto.html?id=${producto.id}" target="_blank" class="btn btn-primary border-0 btn-ver-producto">Ver producto</a>
+                            <a href="./ver-producto.html?id=${producto.id}" class="btn btn-primary border-0 btn-ver-producto">Ver producto</a>
                         </div>
                     </div>`
             });
@@ -102,3 +100,4 @@ const filtroPorCategoria = () => {
 }
 
 filtroPorCategoria();
+mostrarBotonCarrito();

@@ -22,3 +22,4 @@ let outfitMujer = document.getElementById("outfit-mujer"); // listado de outfits
     }
 
     mostrarOutfits();
+    mostrarBotonCarrito();

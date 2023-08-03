@@ -17,6 +17,15 @@
     border: 3px solid #ffffff;
 }
 
+.bg-beige {
+    background-color: var(--beige);
+    padding: 5px;
+}
+
+.thead > tr > th {
+    background-color: var(--beige) !important;
+}
+
 /* FUENTES TIPOGRÁFICAS */
 .rocker {
     font-family: 'Rock Salt', cursive;

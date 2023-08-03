@@ -1,7 +1,7 @@
 // Listado de productos
 
 const renderProductosMujer = () => {
-    productos = JSON.parse(localStorage.getItem("productos"));
+    productos = obtenerProductosLS();
     titulo.innerHTML = "Todos los productos";
     productos.forEach((producto) => {
                 productosMujer.innerHTML += `

@@ -161,3 +161,7 @@ footer {
 aside {
     top: 125px;
 }
+
+.bi-trash3-fill:hover {
+    cursor: pointer;
+}

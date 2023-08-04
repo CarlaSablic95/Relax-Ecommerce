@@ -49,11 +49,11 @@ const mostrarCarrito = () => {
   
       contenidoCarrito.innerHTML = `${contenidoTabla}`;
     } else {
-      contenidoCarrito.innerHTML = `<div class="text-center">
+      contenidoCarrito.innerHTML = `<div class="text-center animate__animated animate__fadeIn">
       <h4 class="text-center text-danger">No hay productos en el carrito!</h4>
-        <img src="./assets/img/carrito.png">
+        <img src="./assets/img/carrito.png" class="my-4">
       </div>
-      <a class="text-center text-decoration-none fs-4 text-dark">Comprar</h4>
+      <a href="./productos-mujer.html" class="text-center text-decoration-none fs-5 btn btn-primary border-0">Comprar</h4>
       `
     }
 }

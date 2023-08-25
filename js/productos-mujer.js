@@ -7,9 +7,6 @@ const renderProductosMujer = () => {
                 productosMujer.innerHTML += `
                     <div class="col-12 col-md-4 mb-4 position-relative animate__animated animate__fadeIn text-center">
                         <img src="${producto.img}" alt="${producto.nombre}" class="img-fluid rounded-top">
-                        <button id="${producto.id}" class="btn btn-primary border-0 position-absolute top-0 end-0 btn-fav">
-                            <i class="bi bi-suit-heart"></i>
-                        </button>
                           
                         <div class="bg-dark card-info-producto">
                             <h4 class="text-white fs-5 text-center">${producto.nombre}</h4>
@@ -41,9 +38,6 @@ const filtroPorEstilo = () => {
                     productosMujer.innerHTML += `
                     <div class="col-12 col-md-4 mb-4 position-relative animate__animated animate__fadeIn text-center">
                     <img src="${producto.img}" alt="${producto.nombre}" class="img-fluid rounded-top">
-                        <button id="${producto.id}" class="btn btn-primary border-0 position-absolute top-0 end-0 btn-fav">
-                            <i class="bi bi-suit-heart"></i>
-                        </button>
                           
                         <div class="bg-dark card-info-producto">
                             <h4 class="text-white fs-5 text-center">${producto.nombre}</h4>
@@ -80,10 +74,6 @@ const filtroPorCategoria = () => {
                     productosMujer.innerHTML += `
                     <div class="col-12 col-md-5 mb-4 position-relative animate__animated animate__fadeIn">
                     <img src="${producto.img}" alt="${producto.nombre}" class="img-fluid rounded-top">
-                        <button id="${producto.id}" class="btn btn-primary border-0 position-absolute top-0 end-0 btn-fav">
-                            <i class="bi bi-suit-heart"></i>
-                        </button>
-                          
                         <div class="bg-dark card-info-producto">
                             <h4 class="text-white fs-5 text-center">${producto.nombre}</h4>
                             <p class="text-white fs-6 text-center">$${producto.precio}</p>

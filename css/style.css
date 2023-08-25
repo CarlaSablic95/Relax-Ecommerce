@@ -31,6 +31,19 @@
     font-family: 'Rock Salt', cursive;
 }
 
+.mensaje-error {
+    font-size: .8rem;
+}
+
+.form-control:focus {
+    border-color: #dee2e6 !important;
+    box-shadow: none !important;
+}
+
+.normal-border {
+    border-color: #dee2e6 !important;
+}
+
 /* BOTONES */
 
 .btn-primary {
@@ -51,7 +64,6 @@
 header > div {
     z-index: 1;
 }
-
 
 .banner {
     filter: brightness(0.7);

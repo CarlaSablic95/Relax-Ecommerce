@@ -31,7 +31,7 @@ const mostrarCarrito = () => {
               <td class="fw-bold text-end align-middle">${producto.cantidad} x $${producto.precio}</td>
               <td class="fw-bold text-end align-middle">$${(producto.cantidad  * producto.precio).toFixed(2)}</td>
               <td class="fw-bold text-center align-middle">
-              <i class="bi bi-trash3-fill" onclick="eliminarProducto(${producto.id})"></i>
+                <i class="bi bi-trash3-fill" onclick="eliminarProducto(${producto.id})"></i>
               </td>
             </tr>
           `;
@@ -50,7 +50,7 @@ const mostrarCarrito = () => {
       contenidoCarrito.innerHTML = `${contenidoTabla}`;
     } else {
       contenidoCarrito.innerHTML = `<div class="text-center animate__animated animate__fadeIn">
-      <h4 class="text-center text-danger">No hay productos en el carrito!</h4>
+      <h4 class="text-center text-danger">¡No hay productos en el carrito!</h4>
         <img src="./assets/img/carrito.png" class="my-4">
       </div>
       <a href="./productos-mujer.html" class="text-center text-decoration-none fs-5 btn btn-primary border-0">Comprar</h4>
@@ -64,8 +64,9 @@ mostrarBotonCarrito();
 const eliminarProducto = (id) => {
   const carrito = cargarCarritoLS();
   let posicion = carrito.findIndex((item) => item.id === id);
+  console.log(posicion)
 
-  // si la cantidad de un producto es mayor a 1, borra 
+  // si la cantidad de un producto es mayor a 1, borra productos de a uno
   if(carrito[posicion].cantidad > 1) {
     carrito[posicion].cantidad -= 1;
   } else {

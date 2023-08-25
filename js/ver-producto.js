@@ -54,8 +54,7 @@ const agregarProducto = (id) => {
     console.log("Carrito: ", carrito);
     
     localStorage.setItem("carrito", JSON.stringify(carrito));
+    mostrarBotonCarrito();
 }
 }
-
 verProducto();
-mostrarBotonCarrito();

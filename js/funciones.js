@@ -1,6 +1,6 @@
 // Guardo productos en local storage
 // Consumiendo API LOCAL de indumentaria femenina
-// let productos = [];
+
 const guardarProductosLS = () => {
     fetch("./js/indumentaria-fem.json")
     .then((respuesta) => respuesta.json())
@@ -32,8 +32,8 @@ const cantidadProductos = () => {
 }
 
 const sumaTotalProductos = () => {
- const carrito = cargarCarritoLS();
- return carrito.reduce((acumulador, producto) => acumulador += producto.cantidad * producto.precio, 0);
+    const carrito = cargarCarritoLS();
+    return carrito.reduce((acumulador, producto) => acumulador += producto.cantidad * producto.precio, 0);
 }
 
 const mostrarBotonCarrito = () => {
@@ -42,5 +42,3 @@ const mostrarBotonCarrito = () => {
 }
 
 mostrarBotonCarrito();
-
-// REGISTRO Y LOGIN DE USUARIO
